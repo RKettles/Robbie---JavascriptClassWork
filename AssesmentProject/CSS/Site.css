@@ -1,0 +1,13 @@
+h1.Main{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+#dropUnique{
+font-size: 30px;
+}
