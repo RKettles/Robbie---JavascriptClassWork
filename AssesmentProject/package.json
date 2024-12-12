@@ -6,7 +6,15 @@
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",
-    "preview": "vite preview --host"
+    "preview": "vite preview --host",
+    "Interactive1build": "tsc && vite build Interactive1",
+    "Interactive1preview": "vite preview Interactive1",
+    "Interactive2build": "tsc && vite build Interactive2",
+    "Interactive2preview": "vite preview Interactive2",
+    "Interactive3build": "tsc && vite build Interactive3",
+    "Interactive3preview": "vite preview Interactive3",
+    "Interactive4build": "tsc && vite build Interactive4",
+    "Interactive4preview": "vite preview Interactive4"
   },
   "devDependencies": {
     "typescript": "~5.6.2",

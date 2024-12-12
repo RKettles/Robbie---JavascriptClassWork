@@ -14,13 +14,17 @@ import {
     Engine,
     StandardMaterial,
     ShadowGenerator,
+    Texture,
   } from "@babylonjs/core";
 import { SceneData } from "./interfaces";
 
-  function createBox(scene: Scene) {
-    let box = MeshBuilder.CreateBox("box",{size: 2}, scene);
-    box.position.y = 1;
-    return box;
+  function createCapsule(scene: Scene) {
+    let capsule = MeshBuilder.CreateCapsule("ribbon",{}, scene);
+    capsule.position.y = 1;
+    var texture = new StandardMaterial("stone", scene);
+    texture.ambientTexture = new Texture("./assets/texture/stone.jpg", scene);
+    capsule.material = texture;
+    return capsule;
   }
 
   function createSphere(scene: Scene) {
@@ -30,6 +34,9 @@ import { SceneData } from "./interfaces";
       scene,
     );
     sphere.position.y = 6;
+    var texture = new StandardMaterial("stone", scene);
+    texture.ambientTexture = new Texture("./assets/texture/stone.jpg", scene);
+    sphere.material = texture;
     return sphere;
   }
 
@@ -112,7 +119,7 @@ function createHemisphericLight(scene: Scene ){
 
   export default function createStartScene(engine: Engine) {
     let scene = new Scene(engine);
-    let box = createBox(scene);
+    let capsule = createCapsule(scene);
     let lightBulb = createPointLight(scene);
     let lightDirectional = createDirectionalLight(scene);
     let lightSpot = createSpotLight(scene);
@@ -120,11 +127,11 @@ function createHemisphericLight(scene: Scene ){
     let sphere = createSphere(scene);
     let ground = createGround(scene);
     let camera = createArcRotateCamera(scene);
-    let shadowGenerator = createShadows(lightDirectional, sphere, box);
+    let shadowGenerator = createShadows(lightDirectional, sphere, capsule);
 
     let that: SceneData = {
      scene,
-     box,
+     capsule,
      lightBulb,
      lightDirectional,
      lightSpot,
